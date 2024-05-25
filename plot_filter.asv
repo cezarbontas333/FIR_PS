@@ -1,0 +1,25 @@
+function [fig] = plot_filter(filter, cols, labels, current_row)
+%PLOT_FILTER Plots response for specified filter
+%   Detailed explanation goes here
+rows = 3;
+[H, W] = freqz(filter, 1, freqz_res);
+
+subplot(rows, cols, current_row);
+plot(W / pi, abs(H));
+xlabel('Frecventa normalizata');
+ylabel('Amplitudine liniar');
+title(sprintf("Spectrul liniar pentru %s", labels));
+
+subplot(rows, cols, current_row + 1);
+plot(W / pi, mag2db(abs(H)));
+xlabel('Frecventa normalizata');
+ylabel('Amplitudine [dB]');
+title(sprintf("Spectrul in dB pentru %s", labels));
+
+subplot(rows, cols, current_row + 2);
+plot(W / pi, H);
+xlabel('Frecventa normalizata');
+ylabel('Amplitudine liniar');
+title(sprintf("Spectrul liniar pentru %s", labels));
+end
+
