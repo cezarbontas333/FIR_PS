@@ -33,7 +33,7 @@
 %	         January  06, 2022
 %
 
-function h = firls_FTJ_c(M,w_p,w_s,K)
+function [h, pr] = firls_FTJ_c(M,w_p,w_s,K)
 
 %
 % BEGIN
@@ -82,6 +82,7 @@ function h = firls_FTJ_c(M,w_p,w_s,K)
 	R = toeplitz(R);		% This is the matrix to invert.
 	r = w_p*sinc((K-M)*w_p);	% This is the free vector.
 	h = R\r;
+    pr = 100 * r' * h / w_p;
 %
 % END
 %
