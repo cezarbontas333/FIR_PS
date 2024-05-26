@@ -1,6 +1,8 @@
-function plot_filter(filter, cols, labels, index)
+function [H, W] = plot_filter(filter, cols, labels, index)
 %PLOT_FILTER Plots response for specified filter
-%   Detailed explanation goes here
+%   Creates a plot containing subplots for frequency responses in linear,
+%   dB scaling and angles. Parameter cols is used to know how many
+%   responses there are needed to be plotted on the same graphic.
 rows = 3;
 [H, W] = freqz(filter, 1, 3000);
 
