@@ -1,6 +1,0 @@
-%% Date proiect
-addpath("dependencies\");
-ng = 4;
-ns = 4;
-
-%% Punctul a si b
